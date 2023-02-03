@@ -4,12 +4,15 @@
 <ul>
 <%@kittens.each do |kitty|%>
 
-<li>
-<p><%= kitty.name%> Specs:</p>
+<li> <p><%= kitty.name%> Specs:</p>
 <p>Age: <%= kitty.age%> years old.</p>
 <p>Softness: <%=kitty.softness%></p>
 <p>Cuteness: <%=kitty.cuteness%></p>
-<p><%#link_to 'Delete?', kitty.delete%></p>
+<p><%=link_to "Kitty's page!", kitty%></p>
+<%= link_to "Destroy", kitten_path(kitty), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
 </li>
 
 </ul>

@@ -1,3 +1,6 @@
+<%=render 'flash'%>
+
+
 <h1><%=@kitten.name%></h1>
 
 <h3>Other data of <%=@kitten.name%>:</h3>
@@ -5,8 +8,14 @@
     <li>Age: <%=@kitten.age%></li>
     <li>Softness: <%=@kitten.softness%></li>
     <li>Cuteness: <%=@kitten.cuteness%></li>
-    <p><%=link_to "back to root",root_path%></p>
+    <li><%=link_to 'Edit', edit_kitten_path(@kitten)%></li>
 
 </ul>
 
-    <p><%#link_to 'delete?', @kitten.delete%></p>
+    <p><%=link_to "back to root",root_path%></p>
+
+
+<%= link_to "Destroy", kitten_path(@kitten), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
