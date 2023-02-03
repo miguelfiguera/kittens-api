@@ -1,0 +1,19 @@
+<h1>All the Kittens:</h1>
+
+
+<ul>
+<%@kittens.each do |kitty|%>
+
+<li>
+<p><%= kitty.name%> Specs:</p>
+<p>Age: <%= kitty.age%> years old.</p>
+<p>Softness: <%=kitty.softness%></p>
+<p>Cuteness: <%=kitty.cuteness%></p>
+<p><%#link_to 'Delete?', kitty.delete%></p>
+</li>
+
+</ul>
+
+<%end%>
+
+<h2><%= link_to "Create new Kitten!", new_kitten_path%></h2>

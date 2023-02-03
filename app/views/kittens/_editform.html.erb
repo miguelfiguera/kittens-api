@@ -1,0 +1,14 @@
+<%@cuteness_colection=['Not that Handsome','cute','really cute','Dai suki', "MOTTO KAWAAAAAIII"]%>
+<%@softness_coleccion=['rock','sandpaper','blanket','favorite blanket','prrrrrrrrrrrball :D']%>
+
+<%=form_with model: @kitten, data: { turbo: "false" } do |fk|%>
+<%=fk.label :name, "What is this kitty's name?"%> 
+<%=fk.text_field :name%> <br>
+<%=fk.label :age, 'Age of the kitty?'%>
+<%=fk.number_field :age%><br>
+<%=fk.label :cuteness, 'Select how cute: '%>
+<%=fk.select( :cuteness, options_for_select(@cuteness_colection), selected: params[:cuteness])%><br>
+<%=fk.label :softness, 'Select how soft: '%>
+<%=fk.select( :softness, options_for_select(@softness_coleccion), selected: params[:softness])%><br>
+<%=fk.submit 'Submit your updated Kitty :D !'%>
+<%end%>
